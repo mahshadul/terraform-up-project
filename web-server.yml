@@ -1,0 +1,17 @@
+- name: Update the apt-get cache
+  apt:
+    update_cache: yes
+
+- name: Install PHP
+  apt: 
+    name: php
+
+- name: install apache
+  apt:
+    name: apache2
+
+- nmae: Copy the code from the repository
+  git: repo=https://github.com/brikis98/php-app.git dest=/var/www/html/app
+
+- name: Start Apache
+  service: name=apache2 starte=started enabled=yes
